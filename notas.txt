@@ -1,0 +1,15 @@
+kubectl apply -f /home/cayo/Documents/MAESTRIA/Demo1/demo-namespace.yaml
+kubectl apply -f /home/cayo/Documents/MAESTRIA/Demo1/demo-deployment.yaml
+kubectl apply -f /home/cayo/Documents/MAESTRIA/Demo1/demo-service.yaml
+kubectl apply -f /home/cayo/Documents/MAESTRIA/Demo1/demo-ingress.yaml
+
+
+
+kubectl delete -f /home/cayo/Documents/MAESTRIA/Demo1/demo-namespace.yaml
+kubectl delete -f /home/cayo/Documents/MAESTRIA/Demo1/demo-deployment.yaml
+kubectl delete -f /home/cayo/Documents/MAESTRIA/Demo1/demo-service.yaml
+kubectl delete -f /home/cayo/Documents/MAESTRIA/Demo1/demo-ingress.yaml
+
+
+kubectl get all -n 2048-game
+kubectl port-forward service/service-2048 7000:3000 -n 2048-game   
