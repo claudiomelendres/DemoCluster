@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: "2048-ingress"
-  namespace: "2048-game"
+  name: "1010-ingress"
+  namespace: "1010-demo"
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
   labels:
-    app: 2048-ingress
+    app: 1010-ingress
 spec:
   rules:
     - http:
         paths:
           - path: /*
             backend:
-              serviceName: "service-2048"
+              serviceName: "service-1010"
               servicePort: 80
