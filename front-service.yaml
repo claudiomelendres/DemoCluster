@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "service-1010"
+  name: "service-2020"
   namespace: "1010-demo"
 spec:
   ports:
