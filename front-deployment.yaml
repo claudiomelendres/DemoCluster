@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "2020-deployment"
+  namespace: "1010-demo"
+spec:
+  selector:
+    matchLabels:
+      app: "2020"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "2020"
+    spec:
+      containers:
+      - image: cayo999/adminpro
+        imagePullPolicy: Always
+        name: "2020"
+        ports:
+        - containerPort: 80
