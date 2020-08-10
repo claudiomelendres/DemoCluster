@@ -10,9 +10,15 @@ metadata:
     app: 1010-ingress
 spec:
   rules:
-    - http:
-        paths:
-          - path: /*
-            backend:
-              serviceName: "service-1010"
-              servicePort: 80
+  - host: app.adminpro.com
+    http:
+      paths:
+      - backend:
+          serviceName: service-2020
+          servicePort: 80
+  - host: app.service.com
+    http:
+      paths:
+      - backend:
+          serviceName: service-1010
+          servicePort: 3000

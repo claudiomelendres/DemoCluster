@@ -14,8 +14,10 @@ kubectl delete -f /home/cayo/Documents/MAESTRIA/Demo1/demo-ingress.yaml
 kubectl get all -n 1010-demo
 kubectl port-forward service/service-1010 7000:3000 -n 1010-demo   
 
+kubectl port-forward service/service-2020 7000:80 -n 1010-demo   
 
 
+kubectl edit ingress 1010-ingress -n 1010-demo
 
 
 ----------------------------------------------------
@@ -23,3 +25,26 @@ kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/
 kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/master/demo-deployment.yaml
 kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/master/demo-service.yaml
 kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/master/demo-ingress.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/master/front-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/claudiomelendres/DemoCluster/master/front-service.yaml
+
+
+kubectl get ingress/1010-ingress -n 1010-demo
+
+
+
+
+
+  - host: app.adminpro.com
+    http:
+      paths:
+      - backend:
+          serviceName: service-2020
+          servicePort: 80
+  - host: app.service.com
+    http:
+      paths:
+      - backend:
+          serviceName: service-1010
+          servicePort: 3000
